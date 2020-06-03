@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "415372261947",
+    "firebase_url": "https://the-shields-app-wit.firebaseio.com",
+    "project_id": "the-shields-app-wit",
+    "storage_bucket": "the-shields-app-wit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415372261947:android:d1f6f2b58bb3a32f767a1e",
+        "android_client_info": {
+          "package_name": "com.shield.foodmonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415372261947-nuanoadususcucm1u7c5biqourqk7jmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8nepn436ZfIo89pcUoviT_TZeZqm1n1Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415372261947-nuanoadususcucm1u7c5biqourqk7jmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

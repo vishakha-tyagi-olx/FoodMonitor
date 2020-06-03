@@ -7,8 +7,7 @@ import retrofit2.http.Query
 
 class ApiServiceImpl: ApiService {
 
-    override fun getFoodItems(): Single<List<FoodItem>> {
-        // hit api request
+    override fun getFoodList(): Single<List<FoodItem>> {
         return Single.error(Throwable())
     }
 }
