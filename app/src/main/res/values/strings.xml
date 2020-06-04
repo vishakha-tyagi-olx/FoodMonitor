@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">Food Monitor</string>
+    <string name="order_received">You have received this order</string>
+    <string name="client_name">Client Name</string>
+    <string name="client_contact">Client Phone No</string>
+    <string name="client_address">Client Address</string>
+    <string name="send_pic">Send Picture</string>
+    <string name="spinner_title">Select Step</string>
+    <string name="listing_title">Today\'s top dishes</string>
+    <string name="confirm_title">Confirm Details</string>
+    <string name="your_order">Your Order</string>
+    <string name="address">Address</string>
+    <string name="phon_num">Phone Number</string>
+    <string name="food_monitor">Food Monitor</string>
+    <string name="food_monitor_desc">Your food will be under live surveillance by unbiased Food Monitor who will later give a certification to the order</string>
+    <string name="safety_measure_1">1. Live tracked from preparation to delivery</string>
+    <string name="safety_measure_2">2. Critical steps images shared with you</string>
+    <string name="safety_measure_3">"  followed by a hygeine certified order"</string>
+    <string name="confirm_btn">CONFIRM</string>
+    <string name="change_btn">Change</string>
+    <string name="order_confirmed"></string>
+    <string name="order_confirm_msg">We are preparing your order. Your food is under the surveilance of a food monitor</string>
+
+    <string-array name="step_details">
+        <item>Chef Detail</item>
+        <item>Cooking Detail</item>
+        <item>Delivery Detail</item>
+    </string-array>
 </resources>

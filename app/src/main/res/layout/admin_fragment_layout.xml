@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/orderReceived"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/order_received"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/clientName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/orderReceived"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/client_name"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/clientNameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/orderReceived"
+        app:layout_constraintLeft_toRightOf="@id/clientName"
+        android:text="@string/client_name"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/clientPhoneNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/clientName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/client_contact"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/clientPhoneNoVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/clientName"
+        app:layout_constraintLeft_toRightOf="@id/clientPhoneNo"
+        android:text="@string/client_contact"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/clientAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/clientPhoneNo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/client_address"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/clientAddressVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/clientPhoneNo"
+        app:layout_constraintLeft_toRightOf="@id/clientAddress"
+        android:text="@string/client_address"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:padding="8dp"/>
+
+
+    <Button
+        android:id="@+id/sendPics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send_pic"
+        app:layout_constraintTop_toBottomOf="@id/clientAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:padding="8dp"
+        android:textColor="@color/textColor"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/stepsSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clientAddress"
+        android:padding="8dp"
+        android:prompt="@string/spinner_title"
+        android:outlineSpotShadowColor="@color/grey"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/dummyImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/stepsSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

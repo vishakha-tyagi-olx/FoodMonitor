@@ -5,22 +5,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.shield.foodmonitor.R
 import com.shield.foodmonitor.data.api.ApiHelper
 import com.shield.foodmonitor.data.api.ApiServiceImpl
 import com.shield.foodmonitor.data.model.FoodItem
+import com.shield.foodmonitor.data.model.FoodResponse
 import com.shield.foodmonitor.ui.adapter.FoodListAdapter
 import com.shield.foodmonitor.ui.base.ViewModelFactory
 import com.shield.foodmonitor.ui.listeners.OrderNowClickListener
 import com.shield.foodmonitor.ui.viewmodel.FoodListViewModel
 import com.shield.foodmonitor.utils.Status
+import kotlinx.android.synthetic.main.food_item_layout.*
 import kotlinx.android.synthetic.main.food_list_layout.*
 
-class FoodListFragment: Fragment(), OrderNowClickListener{
+class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
 
     private lateinit var foodListViewModel: FoodListViewModel
     private lateinit var adapter: FoodListAdapter
@@ -37,19 +41,31 @@ class FoodListFragment: Fragment(), OrderNowClickListener{
         super.onViewCreated(view, savedInstanceState)
         setUpView()
         setupViewModel()
+        setupObserver()
     }
 
     private fun setupViewModel() {
         foodListViewModel = ViewModelProviders.of(
             this,
-            ViewModelFactory(ApiHelper(ApiServiceImpl()))
+            ViewModelFactory(ApiServiceImpl())
         ).get(FoodListViewModel::class.java)
     }
 
     private fun setUpView() {
         adapter = FoodListAdapter(arrayListOf(), this)
-        recyclerView.layoutManager = GridLayoutManager(activity, 2)
+        switchToAdmin.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.switch_to_admin))
+        showTrackYourOrder()
+        rightArrow.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.right_arrow))
+        recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
+    }
+
+    private fun showTrackYourOrder() {
+        // if(show)
+        trackYourOrder.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.ic_track_order))
+        trackYourOrder.setOnClickListener(this)
+        trackYourOrderIcon.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.track_order_icon))
+        trackYourOrder.setOnClickListener(this)
     }
 
     private fun setupObserver() {
@@ -73,12 +89,27 @@ class FoodListFragment: Fragment(), OrderNowClickListener{
         })
     }
 
-    private fun renderList(foodList: List<FoodItem>) {
-        adapter.addData(foodList)
+    private fun renderList(foodList: FoodResponse) {
+        adapter.addData(foodList.foodList)
         adapter.notifyDataSetChanged()
     }
 
     override fun onOrderNowClick(foodItem: FoodItem) {
+        val bundle = Bundle()
+        bundle.putString("price", foodItem.price)
+        bundle.putString("name", foodItem.name)
+        bundle.putString("image", foodItem.image)
+        val fragment = ConfirmDetailsFragment()
+        fragment.arguments = bundle
+        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, fragment)?.addToBackStack(null)?.commit()
+    }
+
+    override fun onClick(view: View?) {
+        when(view?.id){
+            R.id.trackYourOrder->{
+
+            }
+        }
     }
 
 }

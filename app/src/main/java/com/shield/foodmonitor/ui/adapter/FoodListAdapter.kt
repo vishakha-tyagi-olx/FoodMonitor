@@ -3,22 +3,22 @@ package com.shield.foodmonitor.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.shield.foodmonitor.R
 import com.shield.foodmonitor.data.model.FoodItem
 import com.shield.foodmonitor.ui.listeners.OrderNowClickListener
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.food_item_layout.view.*
 
 class FoodListAdapter(private val foodList: ArrayList<FoodItem>, private val orderNowClickListener: OrderNowClickListener): RecyclerView.Adapter<FoodListAdapter.DataViewHolder>() {
 
     class DataViewHolder(itemView: View, private val orderNowClickListener: OrderNowClickListener) : RecyclerView.ViewHolder(itemView) {
         fun bind(foodItem: FoodItem) {
+            itemView.vegNonveg.setImageDrawable(ContextCompat.getDrawable(itemView.context, R.drawable.ic_veg_mark))
             itemView.itemName.text = foodItem.name
-            itemView.itemprice.text = foodItem.price
-            Glide.with(itemView.foodPic.context)
-                .load(foodItem.image)
-                .into(itemView.foodPic)
+            itemView.itemprice.text = "Rs. " + foodItem.price
+            Picasso.with(itemView.context).load(foodItem.image).resize(480, 260).into(itemView.foodPic);
             itemView.orderNow.setOnClickListener {
                 orderNowClickListener.onOrderNowClick(foodItem)
             }

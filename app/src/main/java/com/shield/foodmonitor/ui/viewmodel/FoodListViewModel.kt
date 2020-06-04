@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shield.foodmonitor.data.api.ApiHelper
 import com.shield.foodmonitor.data.model.FoodItem
+import com.shield.foodmonitor.data.model.FoodResponse
 import com.shield.foodmonitor.data.repository.FoodRepository
 import com.shield.foodmonitor.utils.Resource
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -13,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
 
 class FoodListViewModel(val foodRepository: FoodRepository): ViewModel() {
 
-    private val foodList = MutableLiveData<Resource<List<FoodItem>>>()
+    private val foodList = MutableLiveData<Resource<FoodResponse>>()
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -40,7 +41,7 @@ class FoodListViewModel(val foodRepository: FoodRepository): ViewModel() {
         compositeDisposable.dispose()
     }
 
-    fun getFoodList(): LiveData<Resource<List<FoodItem>>> {
+    fun getFoodList(): LiveData<Resource<FoodResponse>> {
         return foodList
     }
 
