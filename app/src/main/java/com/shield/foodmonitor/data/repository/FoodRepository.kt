@@ -2,10 +2,7 @@ package com.shield.foodmonitor.data.repository
 
 import com.shield.foodmonitor.data.api.ApiHelper
 import com.shield.foodmonitor.data.api.ApiService
-import com.shield.foodmonitor.data.model.ApiGeneralResponse
-import com.shield.foodmonitor.data.model.FoodItem
-import com.shield.foodmonitor.data.model.FoodResponse
-import com.shield.foodmonitor.data.model.FoodStepDetail
+import com.shield.foodmonitor.data.model.*
 import io.reactivex.Single
 
 class FoodRepository(private val apiService: ApiService) {
@@ -14,7 +11,19 @@ class FoodRepository(private val apiService: ApiService) {
         return apiService.getFoodList()
     }
 
+    fun getSafetyCheckList(): Single<TrackOrderResponse> {
+        return apiService.getSafetyCheckList()
+    }
+
     fun uploadFoodStepDetail(foodStepDetail: FoodStepDetail): Single<ApiGeneralResponse> {
         return apiService.uploadFoodStepDetail(foodStepDetail)
+    }
+
+    fun sendPush(){
+        return apiService.sendPush()
+    }
+
+    fun deleteDb(){
+        apiService.deleteDb()
     }
 }

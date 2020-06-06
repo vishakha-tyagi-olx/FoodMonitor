@@ -20,7 +20,9 @@ import com.shield.foodmonitor.ui.adapter.FoodListAdapter
 import com.shield.foodmonitor.ui.base.ViewModelFactory
 import com.shield.foodmonitor.ui.listeners.OrderNowClickListener
 import com.shield.foodmonitor.ui.viewmodel.FoodListViewModel
+import com.shield.foodmonitor.utils.Constants
 import com.shield.foodmonitor.utils.Status
+import com.shield.foodmonitor.utils.Utility
 import kotlinx.android.synthetic.main.food_item_layout.*
 import kotlinx.android.synthetic.main.food_list_layout.*
 
@@ -47,7 +49,7 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
     private fun setupViewModel() {
         foodListViewModel = ViewModelProviders.of(
             this,
-            ViewModelFactory(ApiServiceImpl())
+            ViewModelFactory()
         ).get(FoodListViewModel::class.java)
     }
 
@@ -55,17 +57,32 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
         adapter = FoodListAdapter(arrayListOf(), this)
         switchToAdmin.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.switch_to_admin))
         showTrackYourOrder()
+        switchToAdmin.setOnClickListener(this)
         rightArrow.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.right_arrow))
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
     }
 
     private fun showTrackYourOrder() {
-        // if(show)
-        trackYourOrder.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.ic_track_order))
-        trackYourOrder.setOnClickListener(this)
-        trackYourOrderIcon.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.track_order_icon))
-        trackYourOrder.setOnClickListener(this)
+         if(Utility.getBoolean(context!!, Constants.IS_ORDER_RECEIVED)) {
+             trackYourOrder.setImageDrawable(
+                 ContextCompat.getDrawable(
+                     context!!,
+                     R.drawable.ic_track_order
+                 )
+             )
+             trackYourOrder.setOnClickListener(this)
+             trackYourOrderIcon.setImageDrawable(
+                 ContextCompat.getDrawable(
+                     context!!,
+                     R.drawable.track_order_icon
+                 )
+             )
+             trackYourOrder.visibility = View.VISIBLE
+             trackYourOrderIcon.visibility = View.VISIBLE
+             rightArrow.visibility = View.VISIBLE
+             trackYourOrder.setOnClickListener(this)
+         }
     }
 
     private fun setupObserver() {
@@ -95,6 +112,7 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
     }
 
     override fun onOrderNowClick(foodItem: FoodItem) {
+        foodListViewModel.deleteDb()
         val bundle = Bundle()
         bundle.putString("price", foodItem.price)
         bundle.putString("name", foodItem.name)
@@ -102,12 +120,16 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
         val fragment = ConfirmDetailsFragment()
         fragment.arguments = bundle
         activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, fragment)?.addToBackStack(null)?.commit()
+
     }
 
     override fun onClick(view: View?) {
         when(view?.id){
             R.id.trackYourOrder->{
-
+                activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, TrackOrderFragment())?.addToBackStack(null)?.commit()
+            }
+            R.id.switchToAdmin ->{
+                activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, AdminFragment())?.addToBackStack(null)?.commit()
             }
         }
     }

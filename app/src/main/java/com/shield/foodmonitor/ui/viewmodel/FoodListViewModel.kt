@@ -12,14 +12,17 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class FoodListViewModel(val foodRepository: FoodRepository): ViewModel() {
+class FoodListViewModel(): BaseViewModel() {
 
     private val foodList = MutableLiveData<Resource<FoodResponse>>()
 
-    private val compositeDisposable = CompositeDisposable()
 
     init {
         fetchFoodList()
+    }
+
+    fun deleteDb(){
+        foodRepository.deleteDb()
     }
 
     private fun fetchFoodList() {
@@ -36,10 +39,6 @@ class FoodListViewModel(val foodRepository: FoodRepository): ViewModel() {
         )
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        compositeDisposable.dispose()
-    }
 
     fun getFoodList(): LiveData<Resource<FoodResponse>> {
         return foodList

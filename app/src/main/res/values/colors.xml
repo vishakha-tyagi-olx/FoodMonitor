@@ -9,13 +9,14 @@
     <color name="dark_pink">#ED6059</color>
     <color name="light_pink">#F4A19A</color>
     <color name="dark_teal_light">#59787B</color>
-    <color name="orange">#EE6F01</color>
+    <color name="orange">#EE6F00</color>
     <color name="divider">#e7e7e7</color>
     <color name="black">#000000</color>
     <color name="beige">#f7d7bb</color>
     <color name="confirm">#ed6059</color>
-    <color name="list_bg">#f7f7f7</color>
+    <color name="list_bg">#f6f6f6</color>
     <color name="text_val">#8B8D8D</color>
+
 
 
 </resources>

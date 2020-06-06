@@ -20,16 +20,17 @@ import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.shield.foodmonitor.R
-import com.shield.foodmonitor.data.api.ApiServiceImpl
 import com.shield.foodmonitor.data.model.FoodStepDetail
 import com.shield.foodmonitor.ui.base.ViewModelFactory
 import com.shield.foodmonitor.ui.viewmodel.PostFoodStepViewModel
+import com.shield.foodmonitor.utils.Constants
 import com.shield.foodmonitor.utils.Status
+import com.shield.foodmonitor.utils.Utility
 import com.shield.foodmonitor.utils.Utility.Companion.convertToString
 import kotlinx.android.synthetic.main.admin_fragment_layout.*
 
 
-class AdminFragment: Fragment(), AdapterView.OnItemSelectedListener {
+class AdminFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private val CAMERA_REQUEST = 222
     private val MY_CAMERA_PERMISSION_CODE = 111
@@ -44,23 +45,32 @@ class AdminFragment: Fragment(), AdapterView.OnItemSelectedListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        if (!Utility.getBoolean(context!!, Constants.IS_ORDER_RECEIVED))
+            return inflater.inflate(R.layout.empty_view_layout, container, false)
+
         return inflater.inflate(R.layout.admin_fragment_layout, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpView()
-        setupViewModel()
+        if (Utility.getBoolean(context!!, Constants.IS_ORDER_RECEIVED)) {
+            setUpView()
+            setupViewModel()
+        }
     }
 
     private fun setupObserver(foodStepDetail: FoodStepDetail) {
         postFoodStepViewModel.getUploadStepStatus().observe(this, androidx.lifecycle.Observer {
-            when(it.status){
+            when (it.status) {
                 Status.SUCCESS -> {
                     progressIcon.visibility = View.GONE
                     // reset spinner
                     resetSpinner()
-                    Toast.makeText(activity, it.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        activity,
+                        "Image has been uploaded successfully",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
                 Status.LOADING -> {
                     progressIcon.visibility = View.VISIBLE
@@ -68,14 +78,18 @@ class AdminFragment: Fragment(), AdapterView.OnItemSelectedListener {
                 Status.ERROR -> {
                     //Handle Error
                     progressIcon.visibility = View.GONE
-                    Toast.makeText(activity, it.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        activity,
+                        "Image has been uploaded successfully",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
         })
         postFoodStepViewModel.uploadStepStatus(foodStepDetail)
     }
 
-    private fun resetSpinner(){
+    private fun resetSpinner() {
         stepsSpinner.setSelection(0)
         stepStatus = EMPTY_STRING
     }
@@ -86,7 +100,7 @@ class AdminFragment: Fragment(), AdapterView.OnItemSelectedListener {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        super.onRequestPermissionsResult(requestCode, permissions!!, grantResults)
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == MY_CAMERA_PERMISSION_CODE) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this.context, "camera permission granted", Toast.LENGTH_LONG).show()
@@ -103,7 +117,7 @@ class AdminFragment: Fragment(), AdapterView.OnItemSelectedListener {
             val photoBitmap = data?.extras?.get("data") as Bitmap
             val encodedString = convertToString(photoBitmap)
             setupObserver(FoodStepDetail(stepStatus, encodedString))
-            setDummyImage(encodedString)
+            //    setDummyImage(encodedString)
         }
     }
 
@@ -111,13 +125,12 @@ class AdminFragment: Fragment(), AdapterView.OnItemSelectedListener {
         val decodedBytes: ByteArray = Base64.decode(encodedString, Base64.DEFAULT)
         val decodedBitmap =
             BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-        dummyImage.setImageBitmap(decodedBitmap)
     }
 
     private fun setupViewModel() {
         postFoodStepViewModel = ViewModelProviders.of(
             this,
-            ViewModelFactory(ApiServiceImpl())
+            ViewModelFactory()
         ).get(PostFoodStepViewModel::class.java)
 
     }
@@ -125,7 +138,11 @@ class AdminFragment: Fragment(), AdapterView.OnItemSelectedListener {
     private fun setUpView() {
         prepareSpinner()
         sendPics.setOnClickListener {
-            if (checkSelfPermission(context!!, Manifest.permission.CAMERA) !== PackageManager.PERMISSION_GRANTED) {
+            if (checkSelfPermission(
+                    context!!,
+                    Manifest.permission.CAMERA
+                ) !== PackageManager.PERMISSION_GRANTED
+            ) {
                 requestPermissions(
                     arrayOf(Manifest.permission.CAMERA),
                     MY_CAMERA_PERMISSION_CODE
@@ -134,6 +151,10 @@ class AdminFragment: Fragment(), AdapterView.OnItemSelectedListener {
                 val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 startActivityForResult(cameraIntent, CAMERA_REQUEST)
             }
+        }
+        done.setOnClickListener {
+            Toast.makeText(context!!, "You can track your order now.", Toast.LENGTH_LONG).show()
+            activity?.supportFragmentManager?.popBackStackImmediate()
         }
     }
 

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Food Monitor</string>
-    <string name="order_received">You have received this order</string>
+    <string name="order_received">You have received \nthis order</string>
     <string name="client_name">Client Name</string>
     <string name="client_contact">Client Phone No</string>
     <string name="client_address">Client Address</string>
@@ -13,13 +13,15 @@
     <string name="phon_num">Phone Number</string>
     <string name="food_monitor">Food Monitor</string>
     <string name="food_monitor_desc">Your food will be under live surveillance by unbiased Food Monitor who will later give a certification to the order</string>
-    <string name="safety_measure_1">1. Live tracked from preparation to delivery</string>
-    <string name="safety_measure_2">2. Critical steps images shared with you</string>
-    <string name="safety_measure_3">"  followed by a hygeine certified order"</string>
+    <string name="safety_measure">1. Live tracked from preparation to delivery \n 2. Critical steps images shared with you followed by a hygeine certified orde</string>
     <string name="confirm_btn">CONFIRM</string>
     <string name="change_btn">Change</string>
-    <string name="order_confirmed"></string>
-    <string name="order_confirm_msg">We are preparing your order. Your food is under the surveilance of a food monitor</string>
+    <string name="order_confirmed">ORDER\nCONFIRMED</string>
+    <string name="food_monitor_report">
+        Your Order has been live tracked for 72 Mins by Food Monitor and has passed all hygiene checkpoints. Enjoy your food!</string>
+    <string name="order_confirm_msg">We are preparing your order.\nYour food is under the surveilance of a food monitor</string>
+
+    <string name="no_orders_received_yet">No orders received yet</string>
 
     <string-array name="step_details">
         <item>Chef Detail</item>

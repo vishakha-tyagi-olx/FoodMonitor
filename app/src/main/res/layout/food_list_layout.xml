@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/title"
+        android:paddingRight="16dp"
         android:layout_marginTop="32dp"
         />
 
@@ -37,6 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
         android:layout_marginTop="32dp"
+        android:visibility="gone"
         />
 
     <ImageView
@@ -46,6 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/trackYourOrder"
         android:paddingLeft="16dp"
+        android:visibility="gone"
         />
 
     <ImageView
@@ -54,7 +57,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/trackYourOrder"
-
+        android:visibility="gone"
         android:paddingRight="16dp"
         />
 

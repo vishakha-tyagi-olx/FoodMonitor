@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/itemTitle"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dp"
+        android:paddingTop="28dp"
+        android:text="CHEF DETAILS"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/subTitle"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dp"
+        android:paddingTop="9dp"
+        android:text="Mohit Khurana"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemTitle" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/desc"
+        style="@style/TextAppearance.AppCompat.Small"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:paddingLeft="25dp"
+        android:paddingTop="9dp"
+        android:text="Mohit is a 5 star Chef."
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subTitle" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/picture"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="@id/desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/monitor_img"
+        app:layout_constraintTop_toBottomOf="@id/subTitle"/>
+
+    <LinearLayout
+        android:id="@+id/checkList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/picture" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

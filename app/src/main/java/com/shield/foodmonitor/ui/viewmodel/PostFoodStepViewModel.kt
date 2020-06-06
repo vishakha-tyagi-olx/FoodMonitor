@@ -13,13 +13,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class PostFoodStepViewModel(val foodRepository: FoodRepository): ViewModel() {
+class PostFoodStepViewModel(): BaseViewModel() {
 
     private val apiResponseLiveData = MutableLiveData<Resource<ApiGeneralResponse>>()
 
-    private val compositeDisposable = CompositeDisposable()
 
     fun uploadStepStatus(foodStepDetail: FoodStepDetail){
+
         apiResponseLiveData.postValue(Resource.loading(null))
         compositeDisposable.add(
             foodRepository.uploadFoodStepDetail(foodStepDetail)
