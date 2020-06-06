@@ -21,7 +21,8 @@ class TrackingItemAdapter (private val chefName: String, private val itemList: A
 
     class DataViewHolder(private val chefName: String, itemView: View, private val imageClickListener: ImageClickListener) : RecyclerView.ViewHolder(itemView) {
         fun bind(trackItem: TrackItem) {
-            val bitmap = Bitmap.createScaledBitmap(Utility.decodeBase64String(trackItem.image!!), 120, 100, false)
+            val bitmap = Utility.decodeBase64String(trackItem.image!!)
+            val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 120, 100, false)
             itemView.picture.setImageBitmap(bitmap)
             itemView.subTitle.text = "Mohit Khurana"
             itemView.itemTitle.text = trackItem.status?.toUpperCase()
