@@ -35,6 +35,7 @@ class FoodMonitorApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         registerPushNotification()
+        Utility.FontHelper.init(this)
     }
 
     private fun registerPushNotification() {

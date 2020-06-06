@@ -18,7 +18,7 @@ class ApiServiceImpl: ApiService {
         RetrofitClientImpl.getApiClient().create(RequestInterface::class.java)
     }
     override fun getSafetyCheckList(): Single<TrackOrderResponse> {
-        return wikiApiServe.getSafetyCheckList()
+        return wikiApiServe.getSafetyCheckList(Utility.getString(FoodMonitorApplication.applicationContext(), Constants.UNIQUE_ID)!!)
     }
 
     override fun getFoodList(): Single<FoodResponse> {
@@ -27,7 +27,7 @@ class ApiServiceImpl: ApiService {
     }
 
     override fun uploadFoodStepDetail(foodStepDetail: FoodStepDetail): Single<ApiGeneralResponse> {
-        return wikiApiServe.uploadFoodStepDetail(Utility.getFirebaseToken(FoodMonitorApplication.applicationContext())!!, foodStepDetail.orderStatus!!, foodStepDetail.picture!!)
+        return wikiApiServe.uploadFoodStepDetail(Utility.getString(FoodMonitorApplication.applicationContext(), Constants.UNIQUE_ID)!!, Utility.getFirebaseToken(FoodMonitorApplication.applicationContext())!!, foodStepDetail.orderStatus!!, foodStepDetail.picture!!)
     }
 
     override fun sendPush() {
@@ -46,7 +46,4 @@ class ApiServiceImpl: ApiService {
 
     }
 
-    override fun deleteDb() {
-        wikiApiServe.deleteDb()
-    }
 }

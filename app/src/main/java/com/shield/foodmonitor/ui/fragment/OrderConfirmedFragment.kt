@@ -10,7 +10,10 @@ import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.shield.foodmonitor.R
+import com.shield.foodmonitor.utils.Utility
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.order_confirmed_layout.*
 
 class OrderConfirmedFragment : AppCompatDialogFragment(), View.OnClickListener {
@@ -45,7 +48,19 @@ class OrderConfirmedFragment : AppCompatDialogFragment(), View.OnClickListener {
             )
         )*/
         crossIcon.setOnClickListener(this)
-        done.setOnClickListener(this)
+        bottomView.setOnClickListener(this)
+        orderConfirmed.typeface = Utility.FontHelper.mediumfont
+        orderConfirmedDesc.typeface = Utility.FontHelper.regular_font
+
+        Glide.with(context!!)
+            .load(ContextCompat.getDrawable(context!!, R.drawable.right_icon))
+            .into(gifIcon);
+
+      /*  Picasso.with( context )
+            .load(  R.drawable.gif_animation)
+            //.error( R.drawable.ic_error )
+            //.placeholder( R.drawable.progress_animation )
+            .into( gifIcon );*/
     }
 
     override fun onClick(view: View?) {
@@ -54,7 +69,7 @@ class OrderConfirmedFragment : AppCompatDialogFragment(), View.OnClickListener {
                 activity?.supportFragmentManager?.popBackStack()
                 dismiss()
             }
-            R.id.done ->{
+            R.id.bottomView ->{
                 activity?.supportFragmentManager?.popBackStack()
                 Toast.makeText(context!!, "You can switch to Admin and post pictures now.", Toast.LENGTH_LONG).show()
                 dismiss()

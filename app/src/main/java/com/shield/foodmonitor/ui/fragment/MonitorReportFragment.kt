@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.shield.foodmonitor.R
 import com.shield.foodmonitor.utils.Constants
@@ -25,9 +26,14 @@ class MonitorReportFragment: Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         crossIcon.setOnClickListener(this)
         bottomAction.setOnClickListener(this)
-        Picasso.with(context).load(arguments?.getString(Constants.Notification.IMAGE_URL)).resize(480, 260).centerCrop().into(foodImage);
+        Picasso.with(context).load(arguments?.getString(Constants.Notification.IMAGE_URL)).resize(480, 260).centerCrop().placeholder(R.drawable.placeholder).into(foodImage);
         Picasso.with(context).load(arguments?.getString(Constants.Notification.IMAGE_URL)).resize(80, 80).into(foodPic);
-        Utility.clearPreferences(context!!)
+        seal.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.seal))
+        dishName.setTypeface(Utility.FontHelper.regular_font)
+        dishPrice.typeface = Utility.FontHelper.mediumfont
+        congratds.typeface = Utility.FontHelper.bookfont
+        report.typeface = Utility.FontHelper.bookfont
+        bottomAction.typeface = Utility.FontHelper.mediumfont
     }
 
     override fun onClick(view: View?) {

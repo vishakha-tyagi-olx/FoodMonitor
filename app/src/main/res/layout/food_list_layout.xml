@@ -26,20 +26,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintTop_toTopOf="@id/title"
         android:paddingRight="16dp"
-        android:layout_marginTop="32dp"
         />
 
-    <ImageView
-        android:id="@+id/trackYourOrder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        android:layout_marginTop="32dp"
-        android:visibility="gone"
-        />
 
     <ImageView
         android:id="@+id/trackYourOrderIcon"
@@ -47,7 +37,18 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/trackYourOrder"
-        android:paddingLeft="16dp"
+        android:paddingLeft="19dp"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/trackYourOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/trackYourOrderIcon"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginTop="32dp"
+        android:paddingLeft="14dp"
         android:visibility="gone"
         />
 
@@ -57,6 +58,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/trackYourOrder"
+        app:layout_constraintTop_toTopOf="@id/trackYourOrder"
         android:visibility="gone"
         android:paddingRight="16dp"
         />
@@ -79,13 +81,34 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="400dp"
+
+        />
+
+    <TextView
+        android:id="@+id/noResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center_horizontal"
+        android:text="No results found!!"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

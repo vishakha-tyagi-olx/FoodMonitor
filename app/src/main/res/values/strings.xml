@@ -12,8 +12,10 @@
     <string name="address">Address</string>
     <string name="phon_num">Phone Number</string>
     <string name="food_monitor">Food Monitor</string>
+    <string name="food_monitor_tracking">Food Monitor Tracking</string>
+    <string name="hygeine_updates">Hygiene Updates</string>
     <string name="food_monitor_desc">Your food will be under live surveillance by unbiased Food Monitor who will later give a certification to the order</string>
-    <string name="safety_measure">1. Live tracked from preparation to delivery \n 2. Critical steps images shared with you followed by a hygeine certified orde</string>
+    <string name="safety_measure">1. Live tracked from preparation to delivery\n2.Critical steps images shared with you followed by a hygeine certified order. </string>
     <string name="confirm_btn">CONFIRM</string>
     <string name="change_btn">Change</string>
     <string name="order_confirmed">ORDER\nCONFIRMED</string>

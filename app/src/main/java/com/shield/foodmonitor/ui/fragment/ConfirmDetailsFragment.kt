@@ -17,6 +17,7 @@ import com.shield.foodmonitor.utils.Constants
 import com.shield.foodmonitor.utils.Utility
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.confirm_details_layout.*
+import java.util.*
 
 class ConfirmDetailsFragment: Fragment(), View.OnClickListener {
 
@@ -46,24 +47,43 @@ class ConfirmDetailsFragment: Fragment(), View.OnClickListener {
         monitorImg.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.monitor_img))
         Picasso.with(context).load(arguments?.getString("image")).resize(40, 40).into(foodPic);
         setOnClickListeners()
+        setFonts()
+
+    }
+
+    private fun setFonts() {
+        confirmTitle.typeface = Utility.FontHelper.bookfont
+        dishName.typeface = Utility.FontHelper.regular_font
+        dishPrice.typeface = Utility.FontHelper.mediumfont
+        addressVal.typeface = Utility.FontHelper.regular_font
+        address.typeface = Utility.FontHelper.regular_font
+        phoneNoVal.typeface = Utility.FontHelper.regular_font
+        phoneNo.typeface =  Utility.FontHelper.regular_font
+        nameVal.typeface =  Utility.FontHelper.regular_font
+        name.typeface =  Utility.FontHelper.regular_font
+        change0.typeface =  Utility.FontHelper.bookfont
+        change.typeface = Utility.FontHelper.bookfont
+        change2.typeface = Utility.FontHelper.bookfont
+        foodMonitor.typeface = Utility.FontHelper.regular_font
+        foodMonitorDesc.typeface = Utility.FontHelper.regular_font
+        confirmAction.typeface = Utility.FontHelper.mediumfont
+        totalPrice.typeface = Utility.FontHelper.bookfont
+        title.typeface = Utility.FontHelper.mediumfont
+        suntitle.typeface = Utility.FontHelper.regular_font
+        safetyTip1.typeface = Utility.FontHelper.regular_font
 
     }
 
 
-
     private fun setOnClickListeners() {
-        change0.setOnClickListener(this)
-        change.setOnClickListener(this)
-        change2.setOnClickListener(this)
+        backIcon.setOnClickListener(this)
         confirmAction.setOnClickListener(this)
-        FoodMonitorApplication.showKeyboard(nameVal)
     }
 
     override fun onClick(view: View?) {
         when(view?.id){
-            R.id.change0->{
-              //  nameVal.text.clear()
-              //  nameVal.parent.requestChildFocus()
+            R.id.backIcon->{
+              activity?.supportFragmentManager?.popBackStack()
             }
            R.id.change->{
               // addressVal.text.clear()
@@ -76,6 +96,7 @@ class ConfirmDetailsFragment: Fragment(), View.OnClickListener {
                 Utility.saveString(context!!, Constants.CLIENT_NAME, name.text.toString())
                 Utility.saveString(context!!, Constants.PHONE_NO, phoneNo.text.toString())
                 Utility.saveString(context!!, Constants.ADDRESS, addressVal.text.toString())
+                Utility.saveString(context!!, Constants.UNIQUE_ID, UUID.randomUUID().toString())
 
                 OrderConfirmedFragment().show(activity?.supportFragmentManager!!, OrderConfirmedFragment::class.simpleName)
               //  activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, OrderConfirmedFragment())?.commit()

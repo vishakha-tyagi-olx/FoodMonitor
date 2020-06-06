@@ -11,10 +11,10 @@ interface RequestInterface {
     fun getFoodList() : Single<FoodResponse>
 
     @GET("/trackingdetails/getDetails")
-    fun getSafetyCheckList() : Single<TrackOrderResponse>
+    fun getSafetyCheckList(@Query("uid") uid: String) : Single<TrackOrderResponse>
 
     @POST("/tracking/create")
-    fun uploadFoodStepDetail(@Query("token") token: String, @Query("status") status: String, @Body stepDetail: String): Single<ApiGeneralResponse>
+    fun uploadFoodStepDetail(@Query("uid") uid: String, @Query("token") token: String, @Query("status") status: String, @Body stepDetail: String): Single<ApiGeneralResponse>
 
     @POST
     @Headers("Accept: application/json",
@@ -23,5 +23,5 @@ interface RequestInterface {
     fun sendPush(@Url url: String, @Body push: FirebasePush) : Single<PushResponse>
 
     @DELETE("/deletetrackingdetails/tracking")
-    fun deleteDb(): Single<DeleteApiResponse>
+    fun deleteDb(@Query("uid") uid: String): Single<DeleteApiResponse>
 }

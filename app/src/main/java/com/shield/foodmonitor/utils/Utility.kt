@@ -1,18 +1,39 @@
 package com.shield.foodmonitor.utils
 
+import android.R.attr
 import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Bitmap
+import android.graphics.Bitmap.CompressFormat
 import android.graphics.BitmapFactory
+import android.graphics.Typeface
 import android.util.Base64
-import androidx.core.content.ContextCompat
-import com.google.gson.Gson
+import androidx.core.content.res.ResourcesCompat
+import com.shield.foodmonitor.FoodMonitorApplication
+import com.shield.foodmonitor.R
 import com.shield.foodmonitor.data.model.DataPayload
 import com.shield.foodmonitor.data.model.FirebasePush
 import java.io.ByteArrayOutputStream
 
 
 class Utility {
+
+
+    object FontHelper {
+        var custom_font: Typeface? = null
+        var regular_font: Typeface? = null
+        var boldfont: Typeface? = null
+        var bookfont: Typeface? = null
+        var mediumfont: Typeface? = null
+            get() = field
+        fun init(foodGuruApp: FoodMonitorApplication) {
+            custom_font = ResourcesCompat.getFont(foodGuruApp, R.font.geomanist_medium);
+            regular_font = ResourcesCompat.getFont(foodGuruApp, R.font.geomanist_regular);
+            boldfont = ResourcesCompat.getFont(foodGuruApp, R.font.geomanist_bold);
+            bookfont = ResourcesCompat.getFont(foodGuruApp, R.font.geomanist_book);
+            mediumfont = ResourcesCompat.getFont(foodGuruApp, R.font.geomanist_medium);
+        }
+    }
 
     companion object {
 
@@ -139,6 +160,12 @@ class Utility {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
             val imgByte: ByteArray = byteArrayOutputStream.toByteArray()
             return Base64.encodeToString(imgByte, Base64.DEFAULT)
+        }
+
+        fun convertBitmapToByteArray(bitmap: Bitmap): ByteArray{
+            val blob = ByteArrayOutputStream()
+            bitmap.compress(CompressFormat.PNG, 0 /* Ignored for PNGs */, blob)
+           return blob.toByteArray()
         }
 
         fun decodeBase64String(encodedString: String): Bitmap {

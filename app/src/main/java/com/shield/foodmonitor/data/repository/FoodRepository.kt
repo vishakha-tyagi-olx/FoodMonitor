@@ -22,8 +22,4 @@ class FoodRepository(private val apiService: ApiService) {
     fun sendPush(){
         return apiService.sendPush()
     }
-
-    fun deleteDb(){
-        apiService.deleteDb()
-    }
 }

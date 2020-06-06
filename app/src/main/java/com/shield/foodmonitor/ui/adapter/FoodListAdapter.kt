@@ -8,17 +8,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shield.foodmonitor.R
 import com.shield.foodmonitor.data.model.FoodItem
 import com.shield.foodmonitor.ui.listeners.OrderNowClickListener
+import com.shield.foodmonitor.utils.Utility
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.food_item_layout.view.*
 
 class FoodListAdapter(private val foodList: ArrayList<FoodItem>, private val orderNowClickListener: OrderNowClickListener): RecyclerView.Adapter<FoodListAdapter.DataViewHolder>() {
 
     class DataViewHolder(itemView: View, private val orderNowClickListener: OrderNowClickListener) : RecyclerView.ViewHolder(itemView) {
+
+
+
         fun bind(foodItem: FoodItem) {
             itemView.vegNonveg.setImageDrawable(ContextCompat.getDrawable(itemView.context, R.drawable.ic_veg_mark))
             itemView.itemName.text = foodItem.name
+            itemView.itemName.typeface = Utility.FontHelper.regular_font
             itemView.itemprice.text = "Rs. " + foodItem.price
-            Picasso.with(itemView.context).load(foodItem.image).resize(480, 260).into(itemView.foodPic);
+            itemView.itemprice.typeface = Utility.FontHelper.mediumfont
+            itemView.shieldTag.setImageDrawable(ContextCompat.getDrawable(itemView.context, R.drawable.shield))
+            itemView.shieldTag.setOnClickListener(View.OnClickListener {
+                orderNowClickListener.onshieldClickListener()
+            })
+            Picasso.with(itemView.context).load(foodItem.image).resize(480, 260).placeholder(R.drawable.placeholder).into(itemView.foodPic);
             itemView.orderNow.setOnClickListener {
                 orderNowClickListener.onOrderNowClick(foodItem)
             }

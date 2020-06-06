@@ -12,6 +12,4 @@ interface ApiService {
     fun uploadFoodStepDetail(foodStepDetail: FoodStepDetail): Single<ApiGeneralResponse>
 
     fun sendPush()
-
-    fun deleteDb()
 }

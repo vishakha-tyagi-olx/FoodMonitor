@@ -56,7 +56,7 @@ class FoodMonitorMessagingService : FirebaseMessagingService() {
                 setContentText(Utility.stepsNotificationDescMap().get(data.get("status")))
                 setOngoing(false)
                 setAutoCancel(true)
-                    .setSmallIcon(R.drawable.food_monitor_icon)
+                    .setSmallIcon(R.drawable.app_icon)
                     .setContentIntent(pendingIntent)
                 setVibrate(LongArray(0))
                 priority = Notification.PRIORITY_HIGH

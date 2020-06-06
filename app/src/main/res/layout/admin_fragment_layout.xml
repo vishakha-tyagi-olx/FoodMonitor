@@ -4,11 +4,57 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_pink"
+        android:id="@+id/header"
+        app:layout_constraintTop_toTopOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/backIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/back"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingTop="12dp"
+            android:paddingLeft="16dp"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/backIcon"
+            android:textSize="20sp"
+            android:text="@string/food_monitor"
+            android:paddingTop="18dp"
+            android:paddingLeft="16dp"
+            android:paddingBottom="32dp"
+            android:textColor="@color/colorWhite"/>
+
+        <ImageView
+            android:id="@+id/switchToUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/backIcon"
+            app:srcCompat="@drawable/switch_admin"
+            android:paddingTop="18dp"
+            android:paddingRight="16dp"/>
+
+    </RelativeLayout>
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/orderReceived"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -152,7 +198,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:foregroundGravity="center_vertical"/>
 
 
         <TextView

@@ -65,7 +65,7 @@ class AdminFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 Status.SUCCESS -> {
                     progressIcon.visibility = View.GONE
                     // reset spinner
-                    resetSpinner()
+              //      resetSpinner()
                     Toast.makeText(
                         activity,
                         "Image has been uploaded successfully",
@@ -132,6 +132,7 @@ class AdminFragment : Fragment(), AdapterView.OnItemSelectedListener {
             this,
             ViewModelFactory()
         ).get(PostFoodStepViewModel::class.java)
+        title.typeface = Utility.FontHelper.mediumfont
 
     }
 
@@ -151,6 +152,12 @@ class AdminFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 startActivityForResult(cameraIntent, CAMERA_REQUEST)
             }
+        }
+        switchToUser.setOnClickListener{
+            activity?.supportFragmentManager?.popBackStackImmediate()
+        }
+        backIcon.setOnClickListener {
+            activity?.supportFragmentManager?.popBackStackImmediate()
         }
         done.setOnClickListener {
             Toast.makeText(context!!, "You can track your order now.", Toast.LENGTH_LONG).show()

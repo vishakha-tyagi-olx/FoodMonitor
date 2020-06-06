@@ -5,4 +5,6 @@ import com.shield.foodmonitor.data.model.FoodItem
 interface OrderNowClickListener {
 
     fun onOrderNowClick(foodItem: FoodItem)
+
+    fun onshieldClickListener()
 }

@@ -8,6 +8,7 @@ import com.shield.foodmonitor.data.model.FoodItem
 import com.shield.foodmonitor.data.model.FoodResponse
 import com.shield.foodmonitor.data.repository.FoodRepository
 import com.shield.foodmonitor.utils.Resource
+import com.shield.foodmonitor.utils.Utility
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -19,10 +20,6 @@ class FoodListViewModel(): BaseViewModel() {
 
     init {
         fetchFoodList()
-    }
-
-    fun deleteDb(){
-        foodRepository.deleteDb()
     }
 
     private fun fetchFoodList() {
@@ -37,6 +34,7 @@ class FoodListViewModel(): BaseViewModel() {
                     foodList.postValue(Resource.error("Something Went Wrong", null))
                 })
         )
+
     }
 
 

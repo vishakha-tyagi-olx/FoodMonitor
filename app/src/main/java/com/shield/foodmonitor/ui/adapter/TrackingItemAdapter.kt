@@ -21,9 +21,13 @@ class TrackingItemAdapter (private val chefName: String, private val itemList: A
 
     class DataViewHolder(private val chefName: String, itemView: View, private val imageClickListener: ImageClickListener) : RecyclerView.ViewHolder(itemView) {
         fun bind(trackItem: TrackItem) {
-            itemView.picture.setImageBitmap(Bitmap.createScaledBitmap(Utility.decodeBase64String(trackItem.image!!), 120, 100, false))
+            val bitmap = Bitmap.createScaledBitmap(Utility.decodeBase64String(trackItem.image!!), 120, 100, false)
+            itemView.picture.setImageBitmap(bitmap)
             itemView.subTitle.text = "Mohit Khurana"
             itemView.itemTitle.text = trackItem.status?.toUpperCase()
+            itemView.itemTitle.typeface = Utility.FontHelper.boldfont
+            itemView.subTitle.typeface = Utility.FontHelper.bookfont
+            itemView.desc.typeface = Utility.FontHelper.regular_font
             Utility.stepdescMap().let { map ->
                 if(map.size > 0) {
                     itemView.desc.text = map.get(trackItem.status)
@@ -31,7 +35,7 @@ class TrackingItemAdapter (private val chefName: String, private val itemList: A
             }
             createCheckList(itemView.checkList, trackItem)
             itemView.picture.setOnClickListener {
-                imageClickListener.onImageClick(trackItem.image)
+                imageClickListener.onImageClick(Utility.convertBitmapToByteArray(bitmap))
             }
         }
 
@@ -46,6 +50,7 @@ class TrackingItemAdapter (private val chefName: String, private val itemList: A
                         false
                     )
                     view.sectionItem.text = item
+                    view.sectionItem.typeface = Utility.FontHelper.regular_font
                     listView.addView(view)
                 }
             }

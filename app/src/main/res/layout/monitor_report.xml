@@ -70,6 +70,15 @@
         app:layout_constraintStart_toStartOf="parent"
         android:foregroundGravity="center_horizontal"
         />
+    
+    <ImageView
+        android:id="@+id/seal"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        app:layout_constraintBottom_toBottomOf="@id/foodImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingRight="32dp"
+        />
 
     <ImageView
         android:id="@+id/foodPic"
@@ -79,7 +88,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/foodImage"
-
         />
 
 

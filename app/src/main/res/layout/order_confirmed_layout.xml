@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/dark_pink">
+    android:background="@color/red_gif_bg">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/crossIcon"
@@ -14,12 +14,51 @@
         android:layout_alignParentLeft="true"
         android:padding="16dp"/>
 
-    
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/orderConfirmed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/crossIcon"
+        android:layout_centerHorizontal="true"
+        android:text="@string/order_confirmed"
+        android:paddingTop="100dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/gifIcon"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        app:srcCompat="@drawable/monitor_img"
+        android:layout_below="@id/orderConfirmed"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="24dp"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/orderConfirmedDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_below="@id/gifIcon"
+        android:layout_marginBottom="160dp"
+        android:text="@string/order_confirm_msg"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:paddingRight="50dp"
+        android:paddingLeft="50dp"
+        android:paddingTop="24dp"/>
+
     <RelativeLayout
         android:id="@+id/bottomView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:layout_alignParentBottom="true"
+        android:layout_alignParentBottom="true"
         android:background="@color/colorWhite"
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
@@ -36,38 +75,4 @@
             android:padding="8dp"
             />
     </RelativeLayout>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:layout_below="@+id/crossIcon"
-        android:layout_centerHorizontal="true"
-        android:text="@string/order_confirmed"
-        android:textColor="@color/colorWhite"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:gravity="center_horizontal"/>
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/gifIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:srcCompat="@drawable/monitor_img"
-        />
-
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-       android:layout_above="@id/bottomView"
-        android:layout_marginBottom="160dp"
-        android:text="@string/order_confirm_msg"
-        android:textColor="@color/colorWhite"
-        android:textSize="20sp"
-        android:gravity="center_horizontal"
-        android:paddingRight="50dp"
-        android:paddingLeft="50dp"
-        android:paddingTop="50dp"/>
 </RelativeLayout>

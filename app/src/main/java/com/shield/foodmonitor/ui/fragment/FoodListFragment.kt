@@ -25,6 +25,8 @@ import com.shield.foodmonitor.utils.Status
 import com.shield.foodmonitor.utils.Utility
 import kotlinx.android.synthetic.main.food_item_layout.*
 import kotlinx.android.synthetic.main.food_list_layout.*
+import kotlinx.android.synthetic.main.food_list_layout.title
+import kotlinx.android.synthetic.main.track_order_layout.*
 
 class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
 
@@ -61,6 +63,7 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
         rightArrow.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.right_arrow))
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
+        title.setTypeface(Utility.FontHelper.custom_font)
     }
 
     private fun showTrackYourOrder() {
@@ -86,12 +89,20 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
     }
 
     private fun setupObserver() {
-        foodListViewModel.getFoodList().observe(this, Observer {
-            when (it.status) {
+        foodListViewModel.getFoodList().observe(this, Observer {foodlist->
+            when (foodlist.status) {
                 Status.SUCCESS -> {
                     progressBar.visibility = View.GONE
-                    it.data?.let { foodList -> renderList(foodList) }
-                    recyclerView.visibility = View.VISIBLE
+                    if(foodlist!= null && foodlist.data!= null && foodlist.data.foodList!=null && foodlist.data.foodList.size > 0){
+                        renderList(foodlist.data)
+                        recyclerView.visibility = View.VISIBLE
+                    }
+                    else {
+                        showEmptyView()
+                    }
+
+                    foodlist.data?.let { foodList -> renderList(foodList) }
+
                 }
                 Status.LOADING -> {
                     progressBar.visibility = View.VISIBLE
@@ -100,10 +111,16 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
                 Status.ERROR -> {
                     //Handle Error
                     progressBar.visibility = View.GONE
-                    Toast.makeText(activity, it.message, Toast.LENGTH_LONG).show()
+                    noResult.text = foodlist.message
+                    showEmptyView()
+                    Toast.makeText(activity, foodlist.message, Toast.LENGTH_LONG).show()
                 }
             }
         })
+    }
+
+    private fun showEmptyView() {
+        noResult.visibility = View.VISIBLE
     }
 
     private fun renderList(foodList: FoodResponse) {
@@ -112,7 +129,6 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
     }
 
     override fun onOrderNowClick(foodItem: FoodItem) {
-        foodListViewModel.deleteDb()
         val bundle = Bundle()
         bundle.putString("price", foodItem.price)
         bundle.putString("name", foodItem.name)
@@ -121,6 +137,10 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
         fragment.arguments = bundle
         activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, fragment)?.addToBackStack(null)?.commit()
 
+    }
+
+    override fun onshieldClickListener() {
+        ShieldContentFragment().show(activity?.supportFragmentManager!!, ShieldContentFragment::class.simpleName)
     }
 
     override fun onClick(view: View?) {
