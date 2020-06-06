@@ -26,7 +26,7 @@ However in case all steps are a pass then the food monitor shares the Approved t
 # Project roadmap
 ![alt text](https://github.com/vishakha-tyagi-olx/FoodMonitor/blob/master/roadmap.png)
 # Live demo
-[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/NjacmQODfdk)
+[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/bDvlOGKD_T0)
 * **Download APK** https://github.com/vishakha-tyagi-olx/FoodMonitor/blob/master/FoodMonitor.apk
 # Built with
 * **Android Studio** (https://developer.android.com/studio/intro) - The IDE used
