@@ -1,8 +1,8 @@
 # Food Monitor
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/vishakha-tyagi-olx/FoodMonitor)
-Creating an experience for users for ordering food in order to ensure all the necessary sanitation and hygiene requirements have been met with the ability for them to keep a track of the same.
+[![App Logo](https://github.com/[username]/[reponame]/blob/[branch]/logo.png?raw=true)](https://github.com/vishakha-tyagi-olx/FoodMonitor)
+Creating an experience for users for ordering food in order to ensure all the necessary sanitation and hygiene requirements have been met with the ability for them to keep a track of the same. The project aims to help and accelerate the online food & beverage industry in the new normalcy by building a sense of trust and safety for the end users by publishing real time and detailed food preparation visual notifications and tracking.
 # Demo Video
-[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/T-D1KVIuvjA)
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/bDvlOGKD_T0/maxresdefault.jpg)](https://youtu.be/bDvlOGKD_T0)
 # The Architecture
 ![alt text](https://github.com/[username]/[reponame]/blob/[branch]/architecture.jpg?raw=true)
 # Long description
@@ -13,10 +13,16 @@ With COVID-19 transforming everything, we are all faced with significant new cha
 ### The idea
 We're reimagining how customers navigate lines, with new and creative delivery options—reinventing the physical space to meet the needs of consumers that may want more touchless options and less face-to-face interactions. It is vital to provide a similar 'taste' experience as before while keeping in mind the guidelines to give the assurance of safety and hygiene across customers. Providing a platform with a service of monitoring food throughout the entire process starting from placing an order to food preparation and delivery, will enable consumers to be more trustworthy and relaxed while savoring their taste buds.
 # Project roadmap
-![alt text](https://github.com/vishakha-tyagi-olx/FoodMonitor/blob/master/roadmap.png)
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/roadmap.jpg?raw=true)
 # Live demo
 [![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/T-D1KVIuvjA)
 # Built with
+* **Android Studio** (https://developer.android.com/studio/intro) - The IDE used
+* **Maven** (https://maven.apache.org/) - Dependency Management
+# IBM Cloud Services used
+* **Android Studio** (https://developer.android.com/studio/intro) - The IDE used
+* **Maven** (https://maven.apache.org/) - Dependency Management
+# UI/UX Tools
 * **Android Studio** (https://developer.android.com/studio/intro) - The IDE used
 * **Maven** (https://maven.apache.org/) - Dependency Management
 # Authors
