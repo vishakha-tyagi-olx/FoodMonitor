@@ -13,7 +13,7 @@ With COVID-19 transforming everything, we are all faced with significant new cha
 ### The idea
 We're reimagining how customers navigate lines, with new and creative delivery options—reinventing the physical space to meet the needs of consumers that may want more touchless options and less face-to-face interactions. It is vital to provide a similar 'taste' experience as before while keeping in mind the guidelines to give the assurance of safety and hygiene across customers. Providing a platform with a service of monitoring food throughout the entire process starting from placing an order to food preparation and delivery, will enable consumers to be more trustworthy and relaxed while savoring their taste buds.
 # Project roadmap
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/roadmap.jpg?raw=true)
+![alt text](https://github.com/vishakha-tyagi-olx/FoodMonitor/blob/master/roadmap.png)
 # Live demo
 [![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/T-D1KVIuvjA)
 # Built with
