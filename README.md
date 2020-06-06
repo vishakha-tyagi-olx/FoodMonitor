@@ -20,11 +20,12 @@ We're reimagining how customers navigate lines, with new and creative delivery o
 * **Android Studio** (https://developer.android.com/studio/intro) - The IDE used
 * **Maven** (https://maven.apache.org/) - Dependency Management
 # IBM Cloud Services used
-* **Android Studio** (https://developer.android.com/studio/intro) - The IDE used
-* **Maven** (https://maven.apache.org/) - Dependency Management
+* **Cloud Functions** (https://cloud.ibm.com/functions/) - Cloud Function Actions
+* **API Gateway** (https://cloud.ibm.com/functions/apimanagement) - Cloud Functions API
+* **Cloudant DB** (https://cloud.ibm.com/catalog/services/cloudant) - Cloudant DB for storage (edited) 
 # UI/UX Tools
-* **Android Studio** (https://developer.android.com/studio/intro) - The IDE used
-* **Maven** (https://maven.apache.org/) - Dependency Management
+* **Sketch** (https://www.sketch.com/) - UI tool used
+* **Adobe Premier pro** (https://www.adobe.com/in/products/premiere.html) - Video editing
 # Authors
 ### Team - D-Shields @OLX for WIT | Hackathon 2020
 * **Vishakha Tyagi**
