@@ -4,7 +4,7 @@ Creating an experience for users for ordering food in order to ensure all the ne
 # Demo Video
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/bDvlOGKD_T0/maxresdefault.jpg)](https://youtu.be/bDvlOGKD_T0)
 # The Architecture
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/architecture.jpg?raw=true)
+![alt text](https://github.com/vishakha-tyagi-olx/FoodMonitor/blob/master/ArchitectureDiagram.png)
 # Long description
 ### What's the Problem?
 COVID-19 and the associated restrictions imposed by governmental authorities have caught most industries and citizens off guard with little or no time to prepare. During the lockdown, online food and grocery deliveries have become one of the lifelines that people have come to depend on. This pandemic showed us how quickly consumer behavior changed and how quickly the restaurant industry had to adapt. From frontline workers needing to quickly grab a meal, to those of us that had to limit movement beyond our front yards, but still yearn for our favorite food, quick-service restaurants and employees are helping to feed and fuel us all through these unprecedented times. Even in the fifth phase of the nationwide lockdown, many still prefer ordering online and avoid stepping outside altogether as not everybody is used to cooking three meals a day while focusing on household chores and professional careers. As a result, food delivery aggregators are taking precautionary measures by following necessary guidelines like 'kitchen sanitization', 'contactless delivery', 'hand sanitization' and 'temperature check of riders', etc.
