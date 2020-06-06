@@ -1,5 +1,5 @@
 # Food Monitor
-[![App Logo](https://github.com/vishakha-tyagi-olx/FoodMonitor/blob/master/Food%20Monitor_app%20icon.png)
+![App Logo](https://github.com/vishakha-tyagi-olx/FoodMonitor/blob/master/Food%20Monitor_app%20icon.png)
 Creating an experience for users for ordering food in order to ensure all the necessary sanitation and hygiene requirements have been met with the ability for them to keep a track of the same. The project aims to help and accelerate the online food & beverage industry in the new normalcy by building a sense of trust and safety for the end users by publishing real time and detailed food preparation visual notifications and tracking.
 # Demo Video
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/bDvlOGKD_T0/maxresdefault.jpg)](https://youtu.be/bDvlOGKD_T0)
