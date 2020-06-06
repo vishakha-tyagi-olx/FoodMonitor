@@ -26,14 +26,16 @@ However in case all steps are a pass then the food monitor shares the Approved t
 # Project roadmap
 ![alt text](https://github.com/vishakha-tyagi-olx/FoodMonitor/blob/master/roadmap.png)
 # Live demo
-[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/T-D1KVIuvjA)
+[![Watch the video](https://img.youtube.com/vi/fz5tyc6U-8A/mqdefault.jpg)](https://youtu.be/fz5tyc6U-8A)
+* **Download APK** https://github.com/vishakha-tyagi-olx/FoodMonitor/blob/master/FoodMonitor.apk
 # Built with
 * **Android Studio** (https://developer.android.com/studio/intro) - The IDE used
-* **Maven** (https://maven.apache.org/) - Dependency Management
+* **Maven** (https://maven.apache.org/) - Dependency Management 
+* **Firebase Cloud** (https://firebase.google.com/docs/cloud-messaging/android/client) - Push Notifications
 # IBM Cloud Services used
 * **Cloud Functions** (https://cloud.ibm.com/functions/) - Cloud Function Actions
 * **API Gateway** (https://cloud.ibm.com/functions/apimanagement) - Cloud Functions API
-* **Cloudant DB** (https://cloud.ibm.com/catalog/services/cloudant) - Cloudant DB for storage (edited) 
+* **Cloudant DB** (https://cloud.ibm.com/catalog/services/cloudant) - Cloudant DB for storage 
 # UI/UX Tools
 * **Sketch** (https://www.sketch.com/) - UI tool used
 * **Adobe Premier pro** (https://www.adobe.com/in/products/premiere.html) - Video editing
