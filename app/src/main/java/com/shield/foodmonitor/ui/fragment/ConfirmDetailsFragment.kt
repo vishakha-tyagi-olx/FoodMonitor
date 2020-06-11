@@ -96,6 +96,8 @@ class ConfirmDetailsFragment: Fragment(), View.OnClickListener {
                 Utility.saveString(context!!, Constants.CLIENT_NAME, name.text.toString())
                 Utility.saveString(context!!, Constants.PHONE_NO, phoneNo.text.toString())
                 Utility.saveString(context!!, Constants.ADDRESS, addressVal.text.toString())
+
+                Utility.saveString(context!!, Constants.PREV_UNIQUE_ID, Utility.getString(context!!, Constants.UNIQUE_ID)!!)
                 Utility.saveString(context!!, Constants.UNIQUE_ID, UUID.randomUUID().toString())
 
                 OrderConfirmedFragment().show(activity?.supportFragmentManager!!, OrderConfirmedFragment::class.simpleName)

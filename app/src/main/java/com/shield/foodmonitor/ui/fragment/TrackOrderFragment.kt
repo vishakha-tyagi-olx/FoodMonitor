@@ -18,6 +18,7 @@ import com.shield.foodmonitor.ui.base.ViewModelFactory
 import com.shield.foodmonitor.ui.listeners.ImageClickListener
 import com.shield.foodmonitor.ui.viewmodel.PostFoodStepViewModel
 import com.shield.foodmonitor.ui.viewmodel.TrackOrderViewModel
+import com.shield.foodmonitor.utils.Constants
 import com.shield.foodmonitor.utils.Status
 import com.shield.foodmonitor.utils.Utility
 import kotlinx.android.synthetic.main.food_list_layout.*
@@ -75,7 +76,9 @@ class TrackOrderFragment: Fragment(), ImageClickListener {
     }
 
     private fun renderList(checkList: TrackOrderResponse) {
-
+        if(checkList.checkList.size >= 3){
+            Utility.saveString(context!!, Constants.PREV_UNIQUE_ID, Utility.getString(context!!, Constants.UNIQUE_ID)!!)
+        }
         adapter.addData(checkList.checkList)
         adapter.notifyDataSetChanged()
     }

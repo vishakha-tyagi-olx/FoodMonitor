@@ -67,7 +67,9 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
     }
 
     private fun showTrackYourOrder() {
-         if(Utility.getBoolean(context!!, Constants.IS_ORDER_RECEIVED)) {
+        val prevId = Utility.getString(context!!, Constants.PREV_UNIQUE_ID)
+        val uuid = Utility.getString(context!!, Constants.UNIQUE_ID)
+         if(!prevId.equals(uuid)) {
              trackYourOrder.setImageDrawable(
                  ContextCompat.getDrawable(
                      context!!,
@@ -86,6 +88,12 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
              rightArrow.visibility = View.VISIBLE
              trackYourOrder.setOnClickListener(this)
          }
+        else{
+             trackYourOrder.visibility = View.GONE
+             trackYourOrderIcon.visibility = View.GONE
+             rightArrow.visibility = View.GONE
+         }
+
     }
 
     private fun setupObserver() {

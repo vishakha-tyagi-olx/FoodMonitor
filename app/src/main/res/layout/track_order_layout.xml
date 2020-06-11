@@ -78,7 +78,8 @@
         app:layout_constraintTop_toBottomOf="@id/liveTrackingLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="vertical" />
+        android:paddingBottom="160dp"
+        />
 
     <ProgressBar
         android:id="@+id/progressIcon"

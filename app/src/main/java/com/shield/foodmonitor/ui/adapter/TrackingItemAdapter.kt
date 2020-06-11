@@ -1,7 +1,5 @@
 package com.shield.foodmonitor.ui.adapter
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +9,6 @@ import com.shield.foodmonitor.R
 import com.shield.foodmonitor.data.model.TrackItem
 import com.shield.foodmonitor.ui.listeners.ImageClickListener
 import com.shield.foodmonitor.utils.Utility
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.food_item_layout.view.*
-import kotlinx.android.synthetic.main.food_list_layout.view.*
 import kotlinx.android.synthetic.main.track_order_item.view.*
 import kotlinx.android.synthetic.main.trak_order_checklist_item.view.*
 
@@ -22,7 +17,6 @@ class TrackingItemAdapter (private val chefName: String, private val itemList: A
     class DataViewHolder(private val chefName: String, itemView: View, private val imageClickListener: ImageClickListener) : RecyclerView.ViewHolder(itemView) {
         fun bind(trackItem: TrackItem) {
             val bitmap = Utility.decodeBase64String(trackItem.image!!)
-            val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 120, 100, false)
             itemView.picture.setImageBitmap(bitmap)
             itemView.subTitle.text = "Mohit Khurana"
             itemView.itemTitle.text = trackItem.status?.toUpperCase()

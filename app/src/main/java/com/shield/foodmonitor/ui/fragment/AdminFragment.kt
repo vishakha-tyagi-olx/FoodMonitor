@@ -39,23 +39,37 @@ class AdminFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private lateinit var postFoodStepViewModel: PostFoodStepViewModel
     private lateinit var spinnerAdapter: SpinnerAdapter
+    private lateinit var prevId: String
+    private lateinit var uuid: String
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if (!Utility.getBoolean(context!!, Constants.IS_ORDER_RECEIVED))
+         prevId = Utility.getString(context!!, Constants.PREV_UNIQUE_ID)!!
+        uuid = Utility.getString(context!!, Constants.UNIQUE_ID)!!
+        if(prevId.equals(uuid)) {
             return inflater.inflate(R.layout.empty_view_layout, container, false)
+        }
 
         return inflater.inflate(R.layout.admin_fragment_layout, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (Utility.getBoolean(context!!, Constants.IS_ORDER_RECEIVED)) {
+        if (!prevId.equals(uuid)) {
             setUpView()
             setupViewModel()
+        }
+        switchToUser.setOnClickListener{
+            activity?.supportFragmentManager?.popBackStackImmediate()
+        }
+        backIcon.setOnClickListener {
+            activity?.supportFragmentManager?.popBackStackImmediate()
         }
     }
 
@@ -152,12 +166,6 @@ class AdminFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 startActivityForResult(cameraIntent, CAMERA_REQUEST)
             }
-        }
-        switchToUser.setOnClickListener{
-            activity?.supportFragmentManager?.popBackStackImmediate()
-        }
-        backIcon.setOnClickListener {
-            activity?.supportFragmentManager?.popBackStackImmediate()
         }
         done.setOnClickListener {
             Toast.makeText(context!!, "You can track your order now.", Toast.LENGTH_LONG).show()

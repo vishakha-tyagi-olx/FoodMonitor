@@ -9,6 +9,7 @@ import android.view.*
 import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.shield.foodmonitor.R
 import kotlinx.android.synthetic.main.image_detail_fragment.*
 
@@ -34,8 +35,6 @@ class ImageDetailFragment : AppCompatDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         return inflater.inflate(R.layout.image_detail_fragment, container, false)
     }
 
@@ -43,27 +42,7 @@ class ImageDetailFragment : AppCompatDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         val bitmapdata = arguments?.getByteArray("bitmap")
         bitmapdata?.let {
-           image.setImageBitmap(Bitmap.createScaledBitmap(BitmapFactory.decodeByteArray(bitmapdata, 0, bitmapdata.size), 860, 720, false))
-        }
-        scaleGestureDetector = ScaleGestureDetector(activity, ScaleListener(mScaleFactor, image))
-        image.setOnTouchListener { view, motionEvent ->
-            scaleGestureDetector.onTouchEvent(motionEvent)
-        }
-    }
-
-
-    fun onTouchEvent(motionEvent: MotionEvent?): Boolean {
-        scaleGestureDetector.onTouchEvent(motionEvent)
-        return true
-    }
-
-    private class ScaleListener(var mScaleFactor: Float, val imageView: ImageView) : SimpleOnScaleGestureListener() {
-        override fun onScale(scaleGestureDetector: ScaleGestureDetector): Boolean {
-            mScaleFactor *= scaleGestureDetector.scaleFactor
-            mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 10.0f))
-            imageView.setScaleX(mScaleFactor)
-            imageView.setScaleY(mScaleFactor)
-            return true
+           image.setImageBitmap(Bitmap.createScaledBitmap(BitmapFactory.decodeByteArray(bitmapdata, 0, bitmapdata.size), 1200, 920, false))
         }
     }
 }
