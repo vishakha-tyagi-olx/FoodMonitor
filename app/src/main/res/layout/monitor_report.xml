@@ -1,189 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:id="@+id/topHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:background="@color/dark_pink">
 
         <ImageView
             android:id="@+id/crossIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/back"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="16dp"
             android:paddingTop="18dp"
-            android:paddingLeft="16dp"/>
+            app:srcCompat="@drawable/back" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/title"
-        android:layout_width="0dp"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/crossIcon"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="16dp"
+            android:paddingTop="20dp"
+            android:text="Food Monitor report"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/subtitle"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="16dp"
+            android:paddingBottom="18dp"
+            android:text="Hygiene Certification"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/foodMonitorfL"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/crossIcon"
-        android:layout_marginTop="20dp"
-        android:text="Food Monitor report"
-        android:textSize="20sp"
-        android:textColor="@color/colorWhite"
-        style="@style/TextAppearance.AppCompat.Large"
-        android:textStyle="bold"
-        android:paddingLeft="16dp"/>
+        android:layout_below="@id/topHeader"
+        android:layout_centerHorizontal="true">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/subtitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        android:layout_marginTop="8dp"
-        android:text="Hygiene Certification"
-        android:textColor="@color/colorWhite"
-        style="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"
-        android:paddingBottom="18dp"
-        android:paddingLeft="16dp"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/foodImage"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:scaleType="fitXY"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/seal"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="bottom|right"
+            android:paddingRight="32dp"
+            android:paddingBottom="32dp" />
 
-
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/foodImage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/topHeader"
-        android:paddingTop="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:scaleType="centerInside"
-        />
-    
-    <ImageView
-        android:id="@+id/seal"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        app:layout_constraintBottom_toBottomOf="@id/foodImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:paddingRight="32dp"
-        />
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/foodPic"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:paddingTop="40dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/foodImage"
-        />
+        android:layout_below="@id/foodMonitorfL"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:paddingTop="40dp" />
 
 
     <TextView
         android:id="@+id/dishName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/foodMonitorfL"
+        android:layout_toRightOf="@id/foodPic"
         android:paddingTop="40dp"
         android:text="Shahi Dum Biryani"
         android:textColor="@color/textColor"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toRightOf="@id/foodPic"
-        app:layout_constraintStart_toEndOf="@id/foodPic"
-        app:layout_constraintTop_toBottomOf="@id/foodImage"
-        />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/dishPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/dishName"
+        android:layout_toRightOf="@id/foodPic"
         android:paddingTop="4dp"
         android:text="Rs. 345/-"
         android:textColor="@color/textColor"
         android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@id/foodPic"
-        app:layout_constraintStart_toEndOf="@id/foodPic"
-       app:layout_constraintTop_toBottomOf="@id/dishName"
-        />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/blueShield"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_group_16"
+        android:layout_below="@id/foodMonitorfL"
+        android:layout_alignParentRight="true"
         android:paddingTop="40dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/foodImage"
         android:paddingRight="22dp"
-        />
+        app:srcCompat="@drawable/ic_group_16" />
 
     <TextView
         android:id="@+id/congratds"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dishPrice"
-        android:paddingTop="22dp"
+        android:layout_below="@id/dishPrice"
         android:gravity="center_horizontal"
+        android:paddingTop="22dp"
         android:text="Congratulations!"
-        android:textStyle="bold"
         android:textColor="@color/dark_pink"
-        android:paddingLeft="28dp"
-        android:paddingRight="28dp"/>
+        android:textStyle="bold" />
 
 
     <TextView
         android:id="@+id/report"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/congratds"
+        android:layout_below="@id/congratds"
         android:gravity="center_horizontal"
-        android:text="@string/food_monitor_report"
-        android:textSize="16sp"
-        android:textColor="@color/dark_pink"
         android:paddingLeft="28dp"
-        android:paddingRight="28dp"/>
+        android:paddingRight="28dp"
+        android:text="@string/food_monitor_report"
+        android:textColor="@color/dark_pink"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/bottomAction"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GREAT"
-        app:layout_constraintTop_toBottomOf="@id/report"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/dark_pink"
-        android:textStyle="bold"
-        android:textSize="16sp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:paddingTop="50dp"
         android:paddingBottom="16dp"
-        android:paddingTop="50dp" />
+        android:text="GREAT"
+        android:textColor="@color/dark_pink"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

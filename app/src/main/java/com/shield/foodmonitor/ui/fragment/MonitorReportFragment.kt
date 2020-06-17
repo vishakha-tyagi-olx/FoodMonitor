@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.shield.foodmonitor.R
 import com.shield.foodmonitor.utils.Constants
 import com.shield.foodmonitor.utils.Utility
@@ -26,7 +28,9 @@ class MonitorReportFragment: Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         crossIcon.setOnClickListener(this)
         bottomAction.setOnClickListener(this)
-        Picasso.with(context).load(arguments?.getString(Constants.Notification.IMAGE_URL)).resize(480, 260).centerCrop().placeholder(R.drawable.placeholder).into(foodImage);
+        Glide.with(context!!)
+            .load(arguments?.getString(Constants.Notification.IMAGE_URL))
+            .transform(RoundedCorners(60)).placeholder(R.drawable.placeholder).into(foodImage);
         Picasso.with(context).load(arguments?.getString(Constants.Notification.IMAGE_URL)).resize(80, 80).into(foodPic);
         seal.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.seal))
         dishName.setTypeface(Utility.FontHelper.regular_font)

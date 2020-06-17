@@ -143,7 +143,7 @@
         app:layout_constraintBaseline_toBaselineOf="@id/clientAddress"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/client_address"
+        android:text="House no. 356, Sector 2, Noida"
         android:textColor="@color/textColor"
         android:textSize="14sp"
         android:textStyle="bold"

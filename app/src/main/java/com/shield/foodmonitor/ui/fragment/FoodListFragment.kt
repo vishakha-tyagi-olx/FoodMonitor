@@ -83,15 +83,11 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
                      R.drawable.track_order_icon
                  )
              )
-             trackYourOrder.visibility = View.VISIBLE
-             trackYourOrderIcon.visibility = View.VISIBLE
-             rightArrow.visibility = View.VISIBLE
+            llTracking.visibility = View.VISIBLE
              trackYourOrder.setOnClickListener(this)
          }
         else{
-             trackYourOrder.visibility = View.GONE
-             trackYourOrderIcon.visibility = View.GONE
-             rightArrow.visibility = View.GONE
+             llTracking.visibility = View.GONE
          }
 
     }
@@ -115,11 +111,14 @@ class FoodListFragment: Fragment(), OrderNowClickListener, View.OnClickListener{
                 Status.LOADING -> {
                     progressBar.visibility = View.VISIBLE
                     recyclerView.visibility = View.GONE
+                    llTracking.visibility = View.GONE
+
                 }
                 Status.ERROR -> {
                     //Handle Error
                     progressBar.visibility = View.GONE
                     noResult.text = foodlist.message
+                    llTracking.visibility = View.GONE
                     showEmptyView()
                     Toast.makeText(activity, foodlist.message, Toast.LENGTH_LONG).show()
                 }

@@ -1,114 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/listing_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/textColor"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:paddingLeft="16dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="24dp"
-        />
+        android:paddingLeft="16dp"
+        android:text="@string/listing_title"
+        android:textColor="@color/textColor"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-    
+
     <ImageView
         android:id="@+id/switchToAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/title"
-        app:layout_constraintTop_toTopOf="@id/title"
-        android:paddingRight="16dp"
-        />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="24dp"
+        android:paddingRight="16dp" />
 
-
-    <ImageView
-        android:id="@+id/trackYourOrderIcon"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/llTracking"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/trackYourOrder"
-        android:paddingLeft="19dp"
-        android:visibility="gone"
-        />
-
-    <ImageView
-        android:id="@+id/trackYourOrder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/trackYourOrderIcon"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_below="@id/title"
         android:layout_marginTop="32dp"
-        android:paddingLeft="14dp"
-        android:visibility="gone"
-        />
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="gone">
 
-    <ImageView
-        android:id="@+id/rightArrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/trackYourOrder"
-        app:layout_constraintTop_toTopOf="@id/trackYourOrder"
-        android:visibility="gone"
-        android:paddingRight="16dp"
-        />
+        <ImageView
+            android:id="@+id/trackYourOrderIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp" />
 
+        <ImageView
+            android:id="@+id/trackYourOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="20dp" />
 
-
+        <ImageView
+            android:id="@+id/rightArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="8dp" />
+    </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/trackYourOrder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/list_bg"
-        android:layout_marginTop="20dp"
-        />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="400dp"
-
-        />
+        android:layout_below="@id/llTracking"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:background="@color/list_bg"
+        android:paddingBottom="20dp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/noResult"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="420dp"
         android:gravity="center_horizontal"
+        android:padding="16dp"
         android:text="No results found!!"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

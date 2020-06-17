@@ -5,6 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.shield.foodmonitor.R
 import com.shield.foodmonitor.data.model.FoodItem
 import com.shield.foodmonitor.ui.listeners.OrderNowClickListener
@@ -28,7 +30,10 @@ class FoodListAdapter(private val foodList: ArrayList<FoodItem>, private val ord
             itemView.shieldTag.setOnClickListener(View.OnClickListener {
                 orderNowClickListener.onshieldClickListener()
             })
-            Picasso.with(itemView.context).load(foodItem.image).resize(480, 260).placeholder(R.drawable.placeholder).into(itemView.foodPic);
+            Glide.with(itemView.context!!)
+                .load(foodItem.image)
+                .transform(RoundedCorners(32)).placeholder(R.drawable.placeholder).into(itemView.foodPic);
+          //  Picasso.with(itemView.context).load(foodItem.image).resize(480, 260).placeholder(R.drawable.placeholder).into(itemView.foodPic);
             itemView.orderNow.setOnClickListener {
                 orderNowClickListener.onOrderNowClick(foodItem)
             }
@@ -49,6 +54,7 @@ class FoodListAdapter(private val foodList: ArrayList<FoodItem>, private val ord
         holder.bind(foodList[position])
 
     fun addData(list: List<FoodItem>) {
+        foodList.clear()
         foodList.addAll(list)
     }
 }

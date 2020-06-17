@@ -40,6 +40,7 @@ class ConfirmDetailsFragment: Fragment(), View.OnClickListener {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        subtitle.text = "Total: Rs "+ arguments?.getString("price")+"/-"
         dishName.text = arguments?.getString("name")
         dishPrice.text = "Rs. " + arguments?.getString("price") + "/-"
         totalPrice.text = "Total: Rs. "+ arguments?.getString("price")
@@ -69,7 +70,7 @@ class ConfirmDetailsFragment: Fragment(), View.OnClickListener {
         confirmAction.typeface = Utility.FontHelper.mediumfont
         totalPrice.typeface = Utility.FontHelper.bookfont
         title.typeface = Utility.FontHelper.mediumfont
-        suntitle.typeface = Utility.FontHelper.regular_font
+        subtitle.typeface = Utility.FontHelper.regular_font
         safetyTip1.typeface = Utility.FontHelper.regular_font
 
     }
